@@ -13,9 +13,12 @@ def load_tasks():
     """Load tasks from a file, creating the file if it doesn't exist, and handle
     recurring tasks."""
     # Check if the file exists; if not, create and initialize it
-    if not os.path.exists(DATA_FILE):
-        with open(DATA_FILE, "w") as f:
-            json.dump([], f)  # Write an empty JSON array
+    if not os.path.exists("data.json"):
+        with open("data.json", "w") as f:
+            json.dump([], f)
+    if not os.path.exists("completed_tasks.json"):
+        with open("completed_tasks.json", "w") as f:
+            json.dump([], f)
 
     # Try loading tasks from the file
     try:
